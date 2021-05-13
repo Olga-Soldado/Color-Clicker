@@ -16,7 +16,7 @@
             }
             $(document).ready(function(){
                 $('#large_box').click(function(){
-                    alert('Se cambia el color de los div pequeños.!');  
+ 
                     $(".side_box").css("background-color",random_color());
                     $(".middle_box").css("background-color",random_color());
                     $("#large_box").css("background-color",random_color());
@@ -24,8 +24,9 @@
             //comenta esto cuando hayas averiguado para qué se utiliza event.stopPropagation 
                 })
                 $('.side_box').click(function(event){
-                    $('.side_box').siblings().css("background-color",random_color());
-                    alert("se CAMBIO LE COLOR DEL DIV!");
+                    $(this).siblings('.middle_box').css("background-color",random_color());
+                    $(this).siblings('.side_box').css("background-color",random_color());
+                    alert("se cambiaron los colores de los hermanos!");
                     event.stopPropagation();
                 })
                 $('.middle_box').click(function(event){
